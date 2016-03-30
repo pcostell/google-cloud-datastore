@@ -25,6 +25,9 @@
   <name>${project.groupId}:${project.artifactId}</name>
   <url>https://cloud.google.com/datastore/</url>
 
+  <description>
+    Low level client for accessing Google Cloud Datastore v1beta3.
+  </description>
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
@@ -154,11 +157,27 @@
           </executions>
         </plugin>
 
-	<plugin>
+	      <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          
       </plugins>
     </pluginManagement>
   </build>
