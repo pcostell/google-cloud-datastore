@@ -1,0 +1,16 @@
+sudo: false
+
+jdk:
+- openjdk7
+
+before_install:
+- mvn clean
+
+install:
+- pip install --upgrade pip
+- pip install --upgrade tox
+- mvn install -DskipTests=true -Dgpg.skip=true
+
+script:
+- cd python && tox -e py27
+- cd java && mvn test
